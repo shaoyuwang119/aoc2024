@@ -16,15 +16,23 @@ public class Main
 			while (levelScan.hasNextInt()) {
 				line.add(levelScan.nextInt());
 			}
-			System.out.print(line);
 
+            
+            if (isSafe(line)) {
+                safeReports ++;
+            }
 
-			// begin checking through each ArrayList
-			boolean inc = false;
+		}
+    
+    System.out.println(safeReports);
+	}
+	
+	public static boolean isSafe(ArrayList<Integer> list) {
+	    	boolean inc = false;
 			boolean dec = false;
 
-			for (int l=1; l<line.size(); l++) {
-				if (line.get(l) > line.get(l-1)) {
+			for (int i=1; i<list.size(); i++) {
+				if (list.get(i) > list.get(i-1)) {
 					inc = true;
 				} else {
 					inc = false;
@@ -32,8 +40,8 @@ public class Main
 				}
 			}
 
-			for (int l=1; l<line.size(); l++) {
-				if (line.get(l) < line.get(l-1)) {
+			for (int i=1; i<list.size(); i++) {
+				if (list.get(i) < list.get(i-1)) {
 					dec = true;
 				} else {
 					dec = false;
@@ -41,11 +49,10 @@ public class Main
 				}
 			}
 
-			System.out.print(" "+inc+" "+dec);
 
 			boolean differReq = false;
-			for (int l=1; l<line.size(); l++) {
-				int diff = Math.abs(line.get(l) - line.get(l-1));
+			for (int i=1; i<list.size(); i++) {
+				int diff = Math.abs(list.get(i) - list.get(i-1));
 				if (diff >= 1 && diff <= 3) {
 					differReq = true;
 				} else {
@@ -53,15 +60,8 @@ public class Main
 					break;
 				}
 			}
-            System.out.println(" "+differReq);
-            
-            if ((inc || dec) && differReq) {
-                safeReports ++;
-            }
-
-		}
-    
-    System.out.println("FINAL ANSWER: "+safeReports);
+			
+			return((inc || dec) && differReq);
 	}
 
 }
