@@ -4,7 +4,7 @@ import java.io.*;
 public class Main
 {
 	public static void main(String[] args) throws FileNotFoundException {
-		Scanner scan = new Scanner(new File("input.txt"));
+	Scanner scan = new Scanner(new File("input.txt"));
         File f = new File("input.txt");
         String file = "";
         int sum = 0;
@@ -16,7 +16,6 @@ public class Main
         
         for (int i=0; i<file.length()-1; i++) {
     	    if (file.substring(i+1,i+2).equals("u") && file.substring(i+2,i+3).equals("l") && file.substring(i+3,i+4).equals("(")) {
-    	        System.out.println(file.substring(i, i+12));
     	        String sx = "";
     	        String sy = "";
     	        int x = 0;
@@ -26,13 +25,11 @@ public class Main
     	        while (!file.substring(j,j+1).equals(",")) {
     	            sx += file.substring(j,j+1);
     	            j++;
-    	            System.out.println(sx);
     	        }
     	        
     	        try {
     	            x = Integer.parseInt(sx);
     	        } catch (NumberFormatException e) {
-    	            System.out.println("false");
     	            continue;
     	            
     	        }
@@ -46,11 +43,9 @@ public class Main
     	        try {
     	            y = Integer.parseInt(sy);
     	        } catch (NumberFormatException e) {
-    	            System.out.println("false");
     	            continue;
     	        }
     	        
-    	        System.out.println(x*y);
     	        sum += x*y;
     	        
     	    }
