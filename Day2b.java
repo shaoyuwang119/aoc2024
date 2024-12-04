@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Main
+public class Day2b
 {
 	public static void main(String[] args) throws FileNotFoundException {
 		int safeReports = 0;
