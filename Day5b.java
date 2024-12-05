@@ -93,7 +93,8 @@ public class Main
 	public static boolean isCorrectOrder(HashMap<Integer,ArrayList<Integer>> rules, 
 	                                    ArrayList<Integer> upd) 
   { 
-      // the algorithm here is to have a value from the current list, and check all the ints that come before that value in the list, and see if any of those ints break the rules
+      // the algorithm here is to have a value from the current list, and check all the ints that come before that value in the list, 
+      	// and see if any of those ints break the rules
 	    for (int i=0; i<upd.size(); i++) {
                 int beforeNum = upd.get(i);
                 int afterNum = 0;
