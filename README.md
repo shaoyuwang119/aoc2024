@@ -1,7 +1,2 @@
-hi
-
-uh
-
-plz don't post my stuff onto the internet
-
-thanks :3
+Hi, these are my solutions to advent of code.
+They're pretty long, clunky, and inelegant so if you have suggestions please tell me!
