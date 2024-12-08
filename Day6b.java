@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 import java.lang.*;
 
-public class Main
+public class Day6b
 {
     
 	public static void main(String[] args) throws FileNotFoundException 
