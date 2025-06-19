@@ -34,13 +34,9 @@ public class Day12 {
     public static void part2() {
         int totalPrice = 0;
 
-        ArrayList<Integer> regionSides = new ArrayList<>();
-
         for (HashMap<Coords, boolean[]> region : regions) {
             int sides = findSides(region);
-            regionSides.add(sides);
             totalPrice += sides * region.size();
-
         }
 
         System.out.println("Part 2: " + totalPrice);
