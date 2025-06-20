@@ -1,0 +1,22 @@
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+*.xml
+
+# Build output
+/out/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Optional: ignore class files
+*.class
+
+# Input files are not to be shared
+/src/*.txt
