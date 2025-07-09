@@ -10,10 +10,9 @@ public class Grid {
 
     public Grid(String path) {
         try {
-            File f = new File(path);
             List<String> lines = Files.readAllLines(Paths.get(path));
             rows = lines.size();
-            cols = lines.get(0).length();
+            cols = lines.getFirst().length();
             grid = new char[rows][cols];
 
             for (int r = 0; r < rows; r++) {
@@ -25,8 +24,14 @@ public class Grid {
         } catch (FileNotFoundException e) {
             System.out.println("Could not find the file.");
         } catch (IOException e) {
-            System.out.println("IO exception occured.");
+            System.out.println("IO exception occurred.");
         }
+    }
+
+    public Grid(int r, int c) {
+        rows = r;
+        cols = c;
+        grid = new char[rows][cols];
     }
 
     public char get(int row, int col) {
