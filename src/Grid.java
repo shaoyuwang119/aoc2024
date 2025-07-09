@@ -100,7 +100,11 @@ public class Grid {
     public void print() {
         for (char[] r : grid) {
             for (char c : r) {
-                System.out.print(c);
+                if ((int) c == 0) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print(c);
+                }
             }
             System.out.println();
         }
@@ -117,6 +121,31 @@ public class Grid {
         if (this == o) return true;
         if (!(o instanceof Grid other)) return false;
         return Arrays.deepEquals(this.grid, other.grid);
+    }
+
+
+    public int findClusterSize(Coords start, HashSet<Character> tgt, HashSet<Coords> visited) {
+        int out = 1;
+        if (visited.contains(start)) {
+            return 0;
+        }
+        if (!inBounds(start)) {
+            return 0;
+        }
+
+        char e = get(start);
+        if (!tgt.contains(e)) {
+            return 0;
+        }
+
+        visited.add(start);
+        int[][] directions = {{-1,0}, {0,1}, {1,0}, {0,-1}};
+        for (int i=0; i<4; i++) {
+            Coords tempPos = start.add(directions[i][0], directions[i][1]);
+            out += findClusterSize(tempPos, tgt, visited);
+        }
+
+        return out;
     }
 
 }
