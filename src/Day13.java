@@ -40,7 +40,6 @@ public class Day13 {
                 tokens2 += sol2[0]*3 + sol2[1];
             }
 
-
         }
 
         System.out.println("Part 1: " + tokens1);
