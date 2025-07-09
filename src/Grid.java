@@ -106,6 +106,12 @@ public class Grid {
         }
     }
 
+    public void fill(char c) {
+        for (int i=0; i<rows; i++) {
+            Arrays.fill(grid[i], c);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
