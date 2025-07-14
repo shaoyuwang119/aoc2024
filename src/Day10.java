@@ -1,9 +1,10 @@
 import java.io.*;
+import java.nio.file.Path;
 import java.util.*;
 
 public class Day10 {
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Grid grid = new Grid("input.txt");
+        Grid grid = new Grid(Path.of("input.txt"));
 
         part1(grid);
         part2(grid);

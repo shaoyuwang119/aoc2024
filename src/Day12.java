@@ -1,8 +1,9 @@
+import java.nio.file.Path;
 import java.util.*;
 
 public class Day12 {
 
-    private static final Grid grid = new Grid("src/input.txt");
+    private static final Grid grid = new Grid(Path.of("src/input.txt"));
     private static ArrayList<HashMap<Coords, boolean[]>> regions = new ArrayList<>();
 
     public static void main(String[] args) {

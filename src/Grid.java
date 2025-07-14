@@ -8,9 +8,9 @@ public class Grid {
     private int rows;
     private int cols;
 
-    public Grid(String path) {
+    public Grid(Path path) {
         try {
-            List<String> lines = Files.readAllLines(Paths.get(path));
+            List<String> lines = Files.readAllLines(path);
             rows = lines.size();
             cols = lines.getFirst().length();
             grid = new char[rows][cols];
@@ -25,6 +25,25 @@ public class Grid {
             System.out.println("Could not find the file.");
         } catch (IOException e) {
             System.out.println("IO exception occurred.");
+        }
+    }
+
+    /**
+     * The string must contain a grid and only a grid.
+     * @param str the string to be converted to Grid
+     */
+    public Grid(String str) {
+        str = str.replaceFirst("(\r\n|\r|\n)$", ""); // remove any newline at the end of the string
+        String[] lines = str.split("\n", -1);
+
+        int rows = lines.length;
+        int cols = lines[1].length();
+        grid = new char[rows][cols];
+
+        for (int r=0; r<rows; r++) {
+            for (int c=0; c<cols; c++) {
+                grid[r][c] = lines[r].charAt(c);
+            }
         }
     }
 
