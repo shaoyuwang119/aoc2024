@@ -2,12 +2,21 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
+/**
+ * @author Shaoyu Wang
+ */
+
 public class Grid {
     private char[][] grid;
 
     private int rows;
     private int cols;
 
+    /**
+     * Constructs a new {@code Grid} object with specified file at path.
+     * The file must contain lines of equal length.
+     * @param path the path to the file to be converted to {@code Grid} object.
+     */
     public Grid(Path path) {
         try {
             List<String> lines = Files.readAllLines(path);
@@ -29,8 +38,9 @@ public class Grid {
     }
 
     /**
-     * The string must contain a grid and only a grid.
-     * @param str the string to be converted to Grid
+     * Constructs a new {@code Grid} object with specified string.
+     * The string must contain lines of equal length separated by {@code \n}.
+     * @param str the string to be converted to {@code Grid} object.
      */
     public Grid(String str) {
         str = str.replaceFirst("(\r\n|\r|\n)$", ""); // remove any newline at the end of the string
@@ -46,10 +56,10 @@ public class Grid {
             }
         }
     }
-
-    public Grid(int r, int c) {
-        rows = r;
-        cols = c;
+    /**
+     * Constructs a new {@code Grid} object with specified rows and columns.
+     */
+    public Grid(int rows, int cols) {
         grid = new char[rows][cols];
     }
 
