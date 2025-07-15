@@ -17,8 +17,8 @@ public class Day12 {
         Coords currentPos;
         grid.print();
 
-        for (int i=0; i<grid.getRows(); i++) {
-            for (int j=0; j<grid.getCols(); j++) {
+        for (int i = 0; i<grid.rows(); i++) {
+            for (int j = 0; j<grid.cols(); j++) {
                 currentPos = new Coords(i, j);
                 if(visited.contains(new Coords(i, j))) {
                     continue;

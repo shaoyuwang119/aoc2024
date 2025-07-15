@@ -15,8 +15,8 @@ public class Day10 {
         int totalScore = 0;
         HashSet<Coords> visited;
 
-        for (int r = 0; r< grid.getRows(); r++) {
-            for (int c = 0; c< grid.getCols(); c++) {
+        for (int r = 0; r< grid.rows(); r++) {
+            for (int c = 0; c< grid.cols(); c++) {
                 Coords pos = new Coords(r, c);
                 if (grid.get(r, c) == '0') {
                     visited = new HashSet<>();
@@ -32,8 +32,8 @@ public class Day10 {
     public static void part2(Grid grid) {
         int totalRating = 0;
 
-        for (int r=0; r<grid.getRows(); r++) {
-            for (int c=0; c<grid.getCols(); c++) {
+        for (int r = 0; r<grid.rows(); r++) {
+            for (int c = 0; c<grid.cols(); c++) {
                 Coords pos = new Coords(r, c);
                 if (grid.get(r, c) == '0') {
                     int curRating = findRating(grid, pos);

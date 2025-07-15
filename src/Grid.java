@@ -46,8 +46,8 @@ public class Grid {
         str = str.replaceFirst("(\r\n|\r|\n)$", ""); // remove any newline at the end of the string
         String[] lines = str.split("\n", -1);
 
-        int rows = lines.length;
-        int cols = lines[1].length();
+        rows = lines.length;
+        cols = lines[1].length();
         grid = new char[rows][cols];
 
         for (int r=0; r<rows; r++) {
@@ -56,10 +56,13 @@ public class Grid {
             }
         }
     }
+
     /**
      * Constructs a new {@code Grid} object with specified rows and columns.
      */
     public Grid(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
         grid = new char[rows][cols];
     }
 
@@ -79,11 +82,11 @@ public class Grid {
         }
     }
 
-    public int getRows() {
+    public int rows() {
         return rows;
     }
 
-    public int getCols() {
+    public int cols() {
         return cols;
     }
 
