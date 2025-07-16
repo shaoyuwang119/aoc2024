@@ -19,17 +19,8 @@ public class Grid {
      */
     public Grid(Path path) {
         try {
-            List<String> lines = Files.readAllLines(path);
-            rows = lines.size();
-            cols = lines.getFirst().length();
-            grid = new char[rows][cols];
-
-            for (int r = 0; r < rows; r++) {
-                String line = lines.get(r);
-                for (int c = 0; c < cols; c++) {
-                    grid[r][c] = line.charAt(c);
-                }
-            }
+            String input = Files.readString(path);
+            initGrid(input);
         } catch (FileNotFoundException e) {
             System.out.println("Could not find the file.");
         } catch (IOException e) {
@@ -40,9 +31,22 @@ public class Grid {
     /**
      * Constructs a new {@code Grid} object with specified string.
      * The string must contain lines of equal length separated by {@code \n}.
-     * @param str the string to be converted to {@code Grid} object.
+     * @param input the string to be converted to {@code Grid} object.
      */
-    public Grid(String str) {
+    public Grid(String input) {
+        initGrid(input);
+    }
+
+    /**
+     * Constructs a blank {@code Grid} object with specified rows and columns.
+     */
+    public Grid(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
+        grid = new char[rows][cols];
+    }
+
+    private void initGrid(String str) {
         str = str.replaceFirst("(\r\n|\r|\n)$", ""); // remove any newline at the end of the string
         String[] lines = str.split("\n", -1);
 
@@ -55,15 +59,6 @@ public class Grid {
                 grid[r][c] = lines[r].charAt(c);
             }
         }
-    }
-
-    /**
-     * Constructs a new {@code Grid} object with specified rows and columns.
-     */
-    public Grid(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        grid = new char[rows][cols];
     }
 
     public char get(int row, int col) {
